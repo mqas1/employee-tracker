@@ -15,7 +15,6 @@ const connection = mysql.createConnection(
 const db = new Company(connection);
 
 const initializeApp = () => {
-  console.log("Welcome to the Content Management System!");
   inquirer.prompt(
     {
       type: "list",
@@ -28,23 +27,36 @@ const initializeApp = () => {
     const { menu } = response;
     if (menu !== "End Session"){
       if (menu === "View All Departments"){
-        console.log("\nDepartments:\n");
-        db.viewDerpartments();
+        db.viewDepartments();
       }
       else if (menu === "View All Roles"){
-        console.log("\nRoles:\n");
         db.viewRoles();
       }
-      else if (menu === "View All Employees") {
-        console.log("\nEmployees: \n");
+      else if (menu === "View All Employees"){
         db.viewEmployees();
+      }
+      else if (menu === "Add a Department"){
+        db.addDepartment();
+      }
+      else if (menu === "Add a Role"){
+        db.addRole();
+      }
+      else if (menu === "Add an Employee"){
+        db.addEmployee();
+      } else {
+        db.updateEmployee();
       }
       initializeApp();
     } else {
       console.log("\nThank you for using the Content Management System!\nSession ended.");
       connection.end();
     }
-  })
+  });
 }
 
-initializeApp();
+const init = () => {
+  console.log("Welcome to the Content Management System!");
+  initializeApp();
+}
+
+init();
