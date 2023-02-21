@@ -23,33 +23,83 @@ const initializeApp = () => {
       name: "menu"
     }
   )
-  .then((response) => {
+  .then(async (response) => {
     const { menu } = response;
+    let dbQuery;
     if (menu !== "End Session"){
       if (menu === "View All Departments"){
-        db.viewDepartments();
+        try {
+          dbQuery = await db.viewDepartments();
+          return dbQuery;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          return initializeApp();
+        }
       }
       else if (menu === "View All Roles"){
-        db.viewRoles();
+        try {
+          dbQuery = await db.viewRoles();
+          return dbQuery;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          initializeApp();
+        }
       }
       else if (menu === "View All Employees"){
-        db.viewEmployees();
+        try {
+          dbQuery = await db.viewEmployees();
+          return dbQuery;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          initializeApp();
+        }
       }
       else if (menu === "Add a Department"){
-        db.addDepartment();
+        try {
+          dbQuery = await db.addDepartment();
+          return dbQuery;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          initializeApp();
+        }
       }
       else if (menu === "Add a Role"){
-        db.addRole();
+        try {
+          dbQuery = await db.addRole();
+          return dbQuery;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          return initializeApp();
+        }
       }
       else if (menu === "Add an Employee"){
-        db.addEmployee();
+        try {
+          dbQuery = await db.addEmployee();
+          return dbQuery;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          initializeApp();
+        }
       } else {
-        db.updateEmployee();
+        try {
+          dbQuery = await db.updateEmployee();
+          return dbQuery;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          return initializeApp();
+        }
       }
-      initializeApp();
     } else {
       console.log("\nThank you for using the Content Management System!\nSession ended.");
       connection.end();
+      return
     }
   });
 }
