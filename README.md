@@ -10,7 +10,7 @@ Yet, being able to access data is crucial to running a business.
 
 This command line application was created to aid business owners in viewing and managing the departments, roles, and employees in their companies. Employee Tracker makes all the relevant MySQL queries so that business owners don't have to. 
 
-[Video walkthrough](https://drive.google.com/file/d/1gsKOUtvtcE2cqkaysRbdxIEcnKNYRVPb/view) of the application.
+[Video walkthrough](https://drive.google.com/file/d/1JAKyAjJQDvaOvuTPlVIbgNnvcGp-uLKQ/view) of the application.
   
 ## Table of Contents
   

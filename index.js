@@ -21,7 +21,7 @@ const initializeApp = () => {
     {
       type: "list",
       message: "What would you like to do?",
-      choices: ["View All Departments", "View All Roles", "View All Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee Role", "End Session"],
+      choices: ["View All Employees", "Add an Employee", "Update an Employee Role", "View All Roles", "Add a Role", "View All Departments", "Add a Department", "End Session"],
       name: "menu"
     }
   )
