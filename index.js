@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const mysql = require('mysql2');
 const Company = require("./lib/Company");
 
+// Using the dotenv module to conceal the user's MySQL password
 require('dotenv').config();
 
 const connection = mysql.createConnection(
@@ -12,6 +13,7 @@ const connection = mysql.createConnection(
     database: 'employee_db'
   });
 
+// Declaring an instance of the constructor function with the MySQL database
 const db = new Company(connection);
 
 const initializeApp = () => {
